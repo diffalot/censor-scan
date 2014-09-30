@@ -4,7 +4,8 @@
   "description": "scans google trend popular stories and detects if trending stories are censored in specific locations",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "forever --watch --watchIgnore node_modules --watchIgnore .git index.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/ransomw/censor-scan/issues"
   },
-  "homepage": "https://github.com/ransomw/censor-scan"
+  "homepage": "https://github.com/ransomw/censor-scan",
+  "dependencies": {
+    "phantom": "^0.6.5"
+  }
 }
