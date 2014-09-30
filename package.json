@@ -1,0 +1,25 @@
+{
+  "name": "censor-scan",
+  "version": "0.0.0",
+  "description": "scans google trend popular stories and detects if trending stories are censored in specific locations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ransomw/censor-scan.git"
+  },
+  "keywords": [
+    "tor",
+    "scraper",
+    "journalism",
+    "censorship"
+  ],
+  "author": "Ransom Williams and Andrew Davis",
+  "license": "Apache License",
+  "bugs": {
+    "url": "https://github.com/ransomw/censor-scan/issues"
+  },
+  "homepage": "https://github.com/ransomw/censor-scan"
+}
