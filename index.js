@@ -1,38 +1,46 @@
 var phantom = require('phantom');
+var q = require('q');
 
-var phantom = require('phantom');
-phantom.create(function(ph) {
-  return ph.createPage(function(page) {
-    return page.open("http://tilomitra.com/repository/screenscrape/ajax.html", function(status) {
-      console.log("opened site? ", status);
+var scrape = function(options) {
+  var deferred = q.defer();
+  phantom.create(function(ph) {
+    return ph.createPage(function(page) {
+      return page.open(options.uri, function(status) {
+        console.log("SITE OPENED?", status);
 
-      page.injectJs('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', function() {
-        //jQuery Loaded.
-        //Wait for a bit for AJAX content to load on the page. Here, we are waiting 5 seconds.
-        setTimeout(function() {
-          return page.evaluate(function() {
+        page.includeJs('//code.jquery.com/jquery-2.1.1.min.js', function() {
+          setTimeout(function() {
+            return page.evaluate(function() {
 
-            //Get what you want from the page using jQuery. A good way is to populate an object with all the jQuery commands that you need and then return the object.
-            var h2Arr = [],
-            pArr = [];
-            $('h2').each(function() {
-              h2Arr.push($(this).html());
+              var trends = [];
+              $trending = $('.landing-page-hottrends-trends-list-container > div')
+              .each(function(ix, element){
+                trends.push($(element).attr('id'))
+              });
+
+              return {
+                trends: trends
+              };
+            }, function(result) {
+              console.log('RESOLVING', result);
+              deferred.resolve(result);
+              page.render('trends.png')
+              ph.exit();
             });
-            $('p').each(function() {
-              pArr.push($(this).html());
-            });
+          }, 5000);
 
-            return {
-              h2: h2Arr,
-              p: pArr
-            };
-          }, function(result) {
-            console.log(result);
-            ph.exit();
-          });
-        }, 5000);
-
+        });
       });
     });
   });
+  return deferred.promise;
+};
+
+
+var result = scrape({
+  uri: "https://www.google.com/trends/"
+})
+.then(function(result){
+  console.log('RESOLVED', result);
+  return result;
 });
