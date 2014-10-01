@@ -1,4 +1,4 @@
-var phantomScraper = require('./lib/phantom-scraper')
+var phantomScraper = require('phantom-scraper')
 
 var scanSummary = undefined;
 var scanResults = undefined;
