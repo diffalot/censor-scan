@@ -26,7 +26,7 @@
   "dependencies": {
     "express": "^4.9.5",
     "express-handlebars": "^1.1.0",
-    "phantom": "^0.6.5",
+    "iso-3166-country-list": "^0.1.0",
     "phantom-scraper": "0.0.2",
     "q": "^1.0.1"
   }
