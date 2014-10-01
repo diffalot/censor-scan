@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "forever --watch --watchIgnore node_modules --watchIgnore .git index.js"
+    "start": "forever --watch --watchIgnore node_modules --watchIgnore .git server.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/ransomw/censor-scan",
   "dependencies": {
+    "express": "^4.9.5",
+    "express-handlebars": "^1.1.0",
     "phantom": "^0.6.5",
     "q": "^1.0.1"
   }

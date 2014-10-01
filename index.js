@@ -28,6 +28,6 @@ phantomScraper({
 });
 
 module.exports = {
-  scanResults: scanResults,
-  scanSummary: scanSummary
+  scanResults: function() { return scanResults; },
+  scanSummary: function() { return scanSummary; }
 };
