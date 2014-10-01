@@ -1,7 +1,7 @@
 var express = require('express');
 var exphbs  = require('express-handlebars');
 
-var scraper = require('./');
+var scraper = require('./lib');
 
 var app = express();
 

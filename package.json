@@ -2,10 +2,10 @@
   "name": "censor-scan",
   "version": "0.0.0",
   "description": "scans google trend popular stories and detects if trending stories are censored in specific locations",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "forever --watch --watchIgnore node_modules --watchIgnore .git server.js"
+    "start": "nodemon --ignore node_modules/ --ignore .git/ server.js"
   },
   "repository": {
     "type": "git",
