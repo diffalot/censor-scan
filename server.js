@@ -10,8 +10,11 @@ var app = express();
 app.engine('handlebars', exphbs({
   defaultLayout: 'main',
   helpers: {
-    prettyDate: function(date) {
+    prettyDay: function(date) {
       return moment(date).format('dddd, MMMM Do');
+    },
+    prettyTime: function(date) {
+      return moment.utc(date).format('MMMM Do, H:mm');
     }
   }
 }));
@@ -23,7 +26,7 @@ app.get('/', function(req,res,next){
   .on('data', function(data){
     console.log(data.key, '=', data.value);
     var value = data.value;
-    trends.push({date:data.key, trends: data.value.trends});
+    trends.push({date:data.key, trends: data.value.trends, scanFinished: data.value.scanFinished});
   })
   .on('end', function(err,value){
     res.render('results', {
