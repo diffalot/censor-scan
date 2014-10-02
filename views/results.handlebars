@@ -3,10 +3,10 @@
 <ul class="results-list">
   {{#each trends}}
     
-    <li>{{prettyDay this.date}} &mdash; last updated {{prettyTime this.scanFinished}}
+    <li>{{prettyDay this.date}} &mdash; last updated {{prettyTime this.scanFinished}} UTC
       <ul>
       {{#each this.trends}}
-        <li>{{this.name}} &mdash; {{this.searchCount}} searches</li>
+        <li><a href="{{this.uri}}">{{this.name}}</a> &mdash; {{this.searchCount}} searches</li>
       {{/each}}
       </ul>
     </li>
