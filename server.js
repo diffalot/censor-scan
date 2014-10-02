@@ -26,7 +26,7 @@ app.get('/', function(req,res,next){
   .on('data', function(data){
     console.log(data.key, '=', data.value);
     var value = data.value;
-    trends.push({date:data.key, trends: data.value.trends, scanFinished: data.value.scanFinished});
+    trends.push(data.value);
   })
   .on('end', function(err,value){
     res.render('results', {

@@ -2,8 +2,8 @@
 
 <ul class="results-list">
   {{#each trends}}
-    
-    <li>{{prettyDay this.date}} &mdash; last updated {{prettyTime this.scanFinished}} UTC
+
+    <li>{{this.country}} &mdash; {{prettyDay this.date}} &mdash; last updated {{prettyTime this.scanFinished}} UTC
       <ul>
       {{#each this.trends}}
         <li><a href="{{this.uri}}">{{this.name}}</a> &mdash; {{this.searchCount}} searches</li>
