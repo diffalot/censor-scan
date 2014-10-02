@@ -1,7 +1,13 @@
 <h1>Scan Results</h1>
 
 <ul class="results-list">
-  {{#each scanSummary.trends}}
-    <li>{{this}}</li>
+  {{#each trends}}
+    <li>{{prettyDate this.date}}
+      <ul>
+      {{#each this.trends}}
+        <li>{{this.name}}</li>
+      {{/each}}
+      </ul>
+    </li>
   {{/each}}
 
